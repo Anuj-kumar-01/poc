@@ -17,7 +17,7 @@ function Home({ editorContent, setEditorContent }) {
     <>
       <div className="w-11/12 mx-auto my-12">
         <Editor
-          apiKey={import.meta.env.VITE_TEXT_EDITOR_API_KEY || "catunu06v0inzzek0lq1t4o6bygknyh4vztc1vpi58lh6f7d"}
+          apiKey={"z7cng1kssrbh5o8os51k65i6zhr5gjn8oa5wvnu8ns8pl1mt"}
           init={{
             plugins: "",
             toolbar:
