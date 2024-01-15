@@ -123,11 +123,11 @@ function CkEditor({ editorContent, setEditorContent }) {
 
     //#region Numbers:- c. Separate digits with a thin space, not a comma, to indicate place values beyond thousands.
 
-    // htmlContent = htmlContent.replace(/(\d)(?=(\d{3})+(\D|$))/g, "$1\u2009");
+    htmlContent = htmlContent.replace(/(\d)(?=(\d{3})+(\D|$))/g, "$1\u2009");
     //#endregion
 
     //#region Corresponding address:- Delete the word “e-mail:”
-    htmlContent = htmlContent.replace(/e-mail:/g, "");
+    htmlContent = htmlContent.replace(/e-mail:/ig, "");
     //#endregion
 
     //#region Text: 4. Use thin space for thousands separator
