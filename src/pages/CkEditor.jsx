@@ -102,10 +102,22 @@ function CkEditor({ editorContent, setEditorContent }) {
 
     //#region Numbers: a. Use numerals for one to nine
     htmlContent = htmlContent.replace(
-      /\b(?:1st|2nd|3rd|[4-9]th)\b/g,
+      /\b(?:one|two|three|four|five|six|seven|eight|nine)\b/gi,
       (match) => {
+        const numberMap = {
+          'one': 1,
+          'two': 2,
+          'three': 3,
+          'four': 4,
+          'five': 5,
+          'six': 6,
+          'seven': 7,
+          'eight': 8,
+          'nine': 9,
+        };
+
         // customize the replacement logic here if needed
-        return match.toUpperCase(); // an example
+        return numberMap[match.toLowerCase()];
       },
     );
     //#endregion
@@ -156,6 +168,10 @@ function CkEditor({ editorContent, setEditorContent }) {
     //     return number.replace(/\d(?=(?:\d{3})+\b)/g, '$&\u2009');
     //   }
     // })
+    //#endregion
+
+    //#region Text: 10. Repeat the word million: ((5 to 6 million )|( 5 - 6 million )|( 5-6 million )) => million to million
+    htmlContent = htmlContent.replace(/(\d)\s*(?:to|-)\s*(\d)\s*million/g, '$1 million to $2 million');
     //#endregion
     setEditorContent(htmlContent);
   }
